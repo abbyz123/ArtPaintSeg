@@ -1,4 +1,4 @@
-import pathlib, os, shutil
+import pathlib, os
 import requests
 
 # get path to api key
@@ -21,7 +21,7 @@ if not os.path.isdir(path_to_download):
 
 # download photo for each category
 for item in categories:
-    url = 'https://pixabay.com/api/?key=' + api_key + '&category=' + item
+    url = 'https://pixabay.com/api/?key=' + api_key + '&q=' + item
     req = requests.get(url, timeout=60)
     hit_obj = req.json()['hits']
     for cnt, obj in enumerate(hit_obj):
