@@ -1,4 +1,5 @@
 import pathlib, os, shutil
+import requests
 
 # get path to api key
 curr_path = pathlib.Path.cwd()
@@ -13,7 +14,8 @@ path_to_category = os.path.join(curr_path, r'categories.txt')
 with open(path_to_category) as f:
     categories = f.readlines()
 
-print('api_key: ', api_key)
-print('Categories: ')
+# download photo for each category
 for item in categories:
-    print(item)
+    url = 'https://pixabay.com/api/?key=' + api_key + '&category=' + item
+    req = requests.get(url, timeout=60)
+    print(req.content)
