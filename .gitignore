@@ -133,3 +133,6 @@ api_key.txt
 
 # Download
 Download/
+
+# .DS_Store
+.DS_Store
