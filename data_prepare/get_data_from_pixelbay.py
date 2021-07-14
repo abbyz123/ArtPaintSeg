@@ -33,7 +33,7 @@ for item in categories:
     url = 'https://pixabay.com/api/?key=' + api_key + '&q=' + item
     req = requests.get(url, timeout=60)
     hit_obj = req.json()['hits']
-    for cnt, obj in enumerate(hit_obj):
+    for cnt, obj in enumerate(hit_obj, 1):
         jpg_url = obj['largeImageURL']
         jpg_req = requests.get(jpg_url, timeout=60)
         
