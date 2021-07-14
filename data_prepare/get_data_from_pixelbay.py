@@ -34,7 +34,7 @@ for item in categories:
             os.mkdir(path_to_category)
 
         # download the jpg image
-        path_to_downloaded_image = path_to_category.joinpath('{}.jpg'.format(str(cnt).zfill(8)))
+        path_to_downloaded_image = path_to_category.joinpath('{}_{}.jpg'.format(item, str(cnt).zfill(8)))
         with open(path_to_downloaded_image, 'wb') as downloaded_image:
             downloaded_image.write(jpg_req.content)
         print('[INFO] downloaded: {}'.format(path_to_downloaded_image))
